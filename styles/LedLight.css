@@ -1,0 +1,14 @@
+.Led {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.Led--green {
+  background-color: green;
+}
+.Led--orange {
+  background-color: orange;
+}
+.Led--red {
+  background-color: red;
+}

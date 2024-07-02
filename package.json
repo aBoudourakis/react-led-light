@@ -1,0 +1,25 @@
+{
+  "name": "react-led-light",
+  "version": "0.1.0",
+  "description": "A simple LED light React component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aBoudourakis/react-led-light.git"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "files": [
+    "index.js",
+    "styles/LedLight.css"
+  ],
+  "author": "Athinodoros Boudourakis",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
+}
