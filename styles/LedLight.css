@@ -1,7 +1,13 @@
 .Led {
-  width: 20px;
-  height: 20px;
+  background-color: inherit;
   border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  box-shadow:
+          0 1px 2px #e0e0e0,
+          0 -1px 1px #666,
+          inset 0 -1px 1px rgba(0,0,0,0.5),
+          inset 0 1px 1px rgba(255,255,255,0.8);
 }
 .Led--green {
   background-color: green;
