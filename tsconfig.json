@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "lib": ["dom", "es2015"],
+    "strict": true,
+    "jsx": "react-jsx",
+  },
+  "include": [
+    "src/**/*",
+    "setupTests.ts"
+  ]
+}
