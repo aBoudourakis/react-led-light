@@ -24,7 +24,7 @@ describe('LedLight Component', () => {
         expect(container.firstChild).toHaveClass('Led--red');
     });
 
-    test('\'renders default orange with a not supported specified color blue', () => {
+    test('renders default orange with a not supported specified color blue', () => {
         const { container } = render(<LedLight color="blue" />);
         expect(container.firstChild).toHaveClass('Led--blue');
     });

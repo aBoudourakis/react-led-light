@@ -1,6 +1,12 @@
 {
   "name": "react-led-light",
-  "version": "0.2.1",
+  "version": "0.2.2",
+  "description": "A LED light component with predefined light colors to choose from (green, orange, red)",
+  "keywords": ["react", "ui", "led", "light", "component"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aBoudourakis/react-led-light"
+  },
   "main": "dist/LedLight.js",
   "types": "dist/index.d.ts",
   "scripts": {
