@@ -1,8 +1,8 @@
 {
   "name": "react-led-light",
-  "version": "0.2.2",
-  "description": "A LED light component with predefined light colors to choose from (green, orange, red)",
-  "keywords": ["react", "ui", "led", "light", "component"],
+  "version": "0.3.0",
+  "description": "A LED light component with custom color with optional glow and shine effects",
+  "keywords": ["react", "ui", "led", "light", "component", "glow", "shine"],
   "repository": {
     "type": "git",
     "url": "https://github.com/aBoudourakis/react-led-light"
