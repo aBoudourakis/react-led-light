@@ -1,6 +1,6 @@
 {
   "name": "react-led-light",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A LED light component with custom color with optional glow and shine effects",
   "keywords": [
     "react",
@@ -26,7 +26,7 @@
     "test:coverage": "jest --coverage"
   },
   "peerDependencies": {
-    "react": "^18.3.1"
+    "react": "^18.3.1 || ^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
