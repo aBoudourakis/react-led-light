@@ -1,6 +1,6 @@
 {
   "name": "react-led-light",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A LED light component with custom color with optional glow and shine effects",
   "keywords": ["react", "ui", "led", "light", "component", "glow", "shine"],
   "repository": {

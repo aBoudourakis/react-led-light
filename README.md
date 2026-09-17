@@ -1,6 +1,8 @@
 # LED Light Component
 
-This LED Light component provides a simple, customizable LED light indicator for React applications. It allows developers to easily integrate a visual indicator light into their projects, with customizable colors for different statuses.
+![react-led-light splash banner showing the simple, realistic, and chrome variants with on/off, blink, pulse, and easing examples](assets/splash.webp)
+
+This LED Light component provides a simple, customizable LED light indicator for React applications. It allows developers to easily integrate a visual indicator light into their projects, with customizable colors, variants (simple/realistic/chrome), size, on/off state, and blink/pulse animation.
 
 ## Installation
 
@@ -77,7 +79,7 @@ Animation respects the OS/browser `prefers-reduced-motion` setting: when reduced
 
 ## Customization
 
-Each LED renders a base `Led-root` element (carrying `Led-root--simple`/`Led-root--realistic`/`Led-root--chrome`, and `Led-root--off`/`Led-root--animated` when applicable) wrapping a `.Led` circle, plus an optional `.Socket` (realistic/chrome variants) and `.Shine` overlay.
+Each LED renders a root `Led-root` element (carrying `Led-root--simple`/`Led-root--realistic`/`Led-root--chrome`, and `Led-root--off`/`Led-root--bare` when applicable), an optional `.Socket` (realistic/chrome variants), and a `.LightDisc` wrapper (carrying `Glow`/`LightDisc--animated` when applicable) containing the `.Led` circle and an optional `.Shine` overlay. Glow and animation live on `.LightDisc` rather than the root specifically so a blink/pulse animates the light itself without ever dimming the encasing ring.
 
 The supported public CSS custom properties are:
 
@@ -106,5 +108,4 @@ Contributions to enhance the LED Light component, add more features, and maintai
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
