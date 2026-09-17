@@ -115,20 +115,6 @@ describe('LedLight Component', () => {
         });
     });
 
-    describe('shine', () => {
-        it('wires the specular highlight image as a CSS variable when shine is true', () => {
-            const { container } = render(<LedLight shine />);
-            const root = container.querySelector('.Led-root') as HTMLElement;
-            expect(root.style.getPropertyValue('--led-shine-image')).toMatch(/^url\(.+\)$/);
-        });
-
-        it('does not set the shine image variable when shine is false', () => {
-            const { container } = render(<LedLight shine={false} />);
-            const root = container.querySelector('.Led-root') as HTMLElement;
-            expect(root.style.getPropertyValue('--led-shine-image')).toBe('');
-        });
-    });
-
     describe('size', () => {
         it('defaults --led-size to 16px', () => {
             const { container } = render(<LedLight />);

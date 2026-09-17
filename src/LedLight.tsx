@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles/LedLight.css';
-import shineHighlight from './styles/shine-highlight.png';
 
 export type LedVariant = 'simple' | 'realistic' | 'chrome';
 export type LedAnimationType = 'blink' | 'pulse';
@@ -83,10 +82,6 @@ export default function LedLight({
 
     if (!on) {
         rootStyle.filter = `brightness(var(--led-off-brightness, ${OFF_BRIGHTNESS}))`;
-    }
-
-    if (shine) {
-        rootStyle['--led-shine-image'] = `url(${shineHighlight})`;
     }
 
     const lightDiscStyle: CSSPropertiesWithVars = {

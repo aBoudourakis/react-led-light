@@ -2,15 +2,26 @@
   "name": "react-led-light",
   "version": "0.5.1",
   "description": "A LED light component with custom color with optional glow and shine effects",
-  "keywords": ["react", "ui", "led", "light", "component", "glow", "shine"],
+  "keywords": [
+    "react",
+    "ui",
+    "led",
+    "light",
+    "component",
+    "glow",
+    "shine"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/aBoudourakis/react-led-light"
   },
   "main": "dist/LedLight.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/LedLight.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js && tsc -p tsconfig.build.json",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -30,9 +41,9 @@
     "css-loader": "^5.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "mini-css-extract-plugin": "^2.10.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "style-loader": "^2.0.0",
     "ts-jest": "^29.1.5",
     "typescript": "^5.5.3",
     "webpack": "^5.0.0",

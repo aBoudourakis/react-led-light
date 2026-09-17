@@ -21,11 +21,14 @@ yarn add react-led-light
 
 ## Usage
 
-To use the component, first import it into your React project:
+To use the component, import it and its stylesheet into your React project:
 
 ```tsx
 import LedLight from 'react-led-light';
+import 'react-led-light/dist/LedLight.css';
 ```
+
+The stylesheet is a separate file (rather than auto-injected) so the component works safely in server-rendered environments (Next.js, Remix, etc.) without touching `document` at import time.
 
 Then, you can add it to your component:
 
