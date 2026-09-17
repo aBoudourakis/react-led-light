@@ -5,7 +5,11 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'LedLight.js',
-        libraryTarget: 'umd',
+        library: {
+            name: 'LedLight',
+            type: 'umd',
+            export: 'default'
+        },
         globalObject: 'this'
     },
     resolve: {
@@ -28,11 +32,20 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.png$/,
+                type: 'asset/inline'
             }
         ]
     },
     externals: {
-        react: 'react'
+        react: {
+            root: 'React',
+            commonjs: 'react',
+            commonjs2: 'react',
+            amd: 'react'
+        }
     },
     mode: 'production'
 };

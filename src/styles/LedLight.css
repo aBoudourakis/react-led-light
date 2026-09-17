@@ -1,0 +1,139 @@
+.Led-root {
+    display: inline-block;
+    position: relative;
+    z-index: 0; /* contains the realistic-variant glow falloff's negative z-index to this element */
+    width: var(--led-size, 16px);
+    height: var(--led-size, 16px);
+    line-height: 0;
+    vertical-align: middle;
+}
+
+.Led-root--off {
+    filter: brightness(var(--led-off-brightness, 0.35));
+}
+
+/* Carries the glow halo and the blink/pulse animation, so both apply to the light
+   itself (disc + shine + glow) without ever affecting a sibling .Socket ring. */
+.LightDisc {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+}
+
+.Led {
+    position: absolute;
+    inset: 0;
+    background-color: inherit;
+    border-radius: 50%;
+    /* inset-only: a bit of 3D shading on the disc's own surface, never a shadow outside its circle */
+    box-shadow:
+        inset 0 calc(var(--led-size, 16px) * -0.0625) calc(var(--led-size, 16px) * 0.0625) rgba(0, 0, 0, 0.5),
+        inset 0 calc(var(--led-size, 16px) * 0.0625) calc(var(--led-size, 16px) * 0.0625) rgba(255, 255, 255, 0.8);
+}
+
+.Led-root--bare .Led {
+    box-shadow: none;
+}
+
+.Shine {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-image: var(--led-shine-image, none);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.Led-root--realistic .Socket {
+    position: absolute;
+    inset: calc(var(--led-size, 16px) * -0.1875);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #f5f5f5, var(--led-ring-color, #9a9a9a) 55%, #5a5a5a 100%);
+    box-shadow:
+        0 calc(var(--led-size, 16px) * 0.06) calc(var(--led-size, 16px) * 0.12) rgba(0, 0, 0, 0.35),
+        inset 0 calc(var(--led-size, 16px) * -0.06) calc(var(--led-size, 16px) * 0.1) rgba(0, 0, 0, 0.4),
+        inset 0 calc(var(--led-size, 16px) * 0.06) calc(var(--led-size, 16px) * 0.06) rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+.Led-root--realistic .Led,
+.Led-root--chrome .Led {
+    box-shadow:
+        inset 0 calc(var(--led-size, 16px) * -0.08) calc(var(--led-size, 16px) * 0.1) rgba(0, 0, 0, 0.45),
+        inset 0 calc(var(--led-size, 16px) * 0.08) calc(var(--led-size, 16px) * 0.08) rgba(255, 255, 255, 0.5);
+}
+
+.Led-root--realistic.Led-root--compact .Socket {
+    inset: calc(var(--led-size, 16px) * -0.1125);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.Led-root--realistic.Led-root--compact .Led,
+.Led-root--chrome.Led-root--compact .Led {
+    box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.Led-root--realistic .LightDisc.Glow::after,
+.Led-root--chrome .LightDisc.Glow::after {
+    content: '';
+    position: absolute;
+    inset: calc(var(--led-size, 16px) * -0.75 * var(--led-glow-strength, 1));
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--led-color, orange) 35%, transparent) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* brushed-metal ring: a repeating-conic streak texture blended with a directional
+   conic sweep so the flat ring reads as a curved, cropped cone catching light unevenly */
+.Led-root--chrome .Socket {
+    position: absolute;
+    inset: calc(var(--led-size, 16px) * -0.28);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 42%),
+        repeating-conic-gradient(from 0deg,
+            #f4f4f4 0deg 1.2deg,
+            #9c9c9c 1.2deg 2.4deg,
+            #e6e6e6 2.4deg 4.4deg,
+            #7d7d7d 4.4deg 5.4deg,
+            #eeeeee 5.4deg 7deg
+        ),
+        conic-gradient(from 200deg, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0.35) 45%, rgba(255, 255, 255, 0.35) 65%, rgba(0, 0, 0, 0.4) 100%),
+        radial-gradient(circle, var(--led-ring-color, #b9b9b9) 58%, #4b4b4b 100%);
+    background-blend-mode: screen, soft-light, overlay, normal;
+    box-shadow:
+        0 calc(var(--led-size, 16px) * 0.07) calc(var(--led-size, 16px) * 0.14) rgba(0, 0, 0, 0.4),
+        inset 0 calc(var(--led-size, 16px) * 0.05) calc(var(--led-size, 16px) * 0.05) rgba(255, 255, 255, 0.7),
+        inset 0 calc(var(--led-size, 16px) * -0.07) calc(var(--led-size, 16px) * 0.09) rgba(0, 0, 0, 0.55),
+        inset 0 0 0 calc(var(--led-size, 16px) * 0.045) rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.Led-root--chrome.Led-root--compact .Socket {
+    inset: calc(var(--led-size, 16px) * -0.16);
+    background:
+        conic-gradient(from 200deg, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.3) 45%, rgba(255, 255, 255, 0.3) 65%, rgba(0, 0, 0, 0.35) 100%),
+        radial-gradient(circle, var(--led-ring-color, #b9b9b9) 55%, #4b4b4b 100%);
+    background-blend-mode: soft-light, normal;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes led-blink-step {
+    0%, 49.999% { filter: brightness(1); }
+    50%, 100% { filter: brightness(var(--led-anim-min-brightness, 0)); }
+}
+
+@keyframes led-oscillate {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(var(--led-anim-min-brightness, 0.25)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .LightDisc--animated {
+        animation: none !important;
+        filter: brightness(1) !important;
+    }
+}
