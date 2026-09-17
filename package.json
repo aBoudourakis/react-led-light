@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/aBoudourakis/react-led-light"
+    "url": "git+https://github.com/aBoudourakis/react-led-light.git"
   },
   "main": "dist/LedLight.js",
   "types": "dist/LedLight.d.ts",
